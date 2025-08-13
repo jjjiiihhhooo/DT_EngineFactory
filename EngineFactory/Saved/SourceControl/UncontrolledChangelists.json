@@ -5,7 +5,12 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
-				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Map/Factory.umap"
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Map/Factory.umap",
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/FactotyAssets/M_3ColorsMaskBase_Unique.uasset",
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Maps/Factory.umap",
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Blueprints/BP_ConveyorTool.uasset",
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Blueprints/BP_ConveyorTrack.uasset",
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Blueprints/BP_Item.uasset"
 			]
 		}
 	]
