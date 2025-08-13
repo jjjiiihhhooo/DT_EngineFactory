@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"D:\\JIHO\\UE5\\DT_EngineFactory\\EngineFactory\\Source\\EngineFactory\\EngineFactory.Build.cs",
+		"D:\\JIHO\\UE5\\DT_EngineFactory\\EngineFactory\\Source\\EngineFactory.Target.cs",
+		"D:\\JIHO\\UE5\\DT_EngineFactory\\EngineFactory\\Source\\EngineFactoryEditor.Target.cs"
+	],
+	"EngineVersion": "5.6.1"
+}
