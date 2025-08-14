@@ -11,6 +11,7 @@
     <None Include="..\..\Source\EngineFactoryEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -29,6 +30,12 @@
     <Filter Include="Source\EngineFactory">
       <UniqueIdentifier>{0AFBA31F-EE7F-3891-AF41-C3B2B549948F}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\EngineFactory\CheckTrigger.cpp">
+      <Filter>Source\EngineFactory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\EngineFactory\CheckTrigger.h">
+      <Filter>Source\EngineFactory</Filter>
+    </ClInclude>
     <None Include="..\..\Source\EngineFactory\EngineFactory.Build.cs">
       <Filter>Source\EngineFactory</Filter>
     </None>
@@ -36,6 +43,18 @@
       <Filter>Source\EngineFactory</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\EngineFactory\EngineFactory.h">
+      <Filter>Source\EngineFactory</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\EngineFactory\EngineParts.cpp">
+      <Filter>Source\EngineFactory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\EngineFactory\EngineParts.h">
+      <Filter>Source\EngineFactory</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\EngineFactory\Machine.cpp">
+      <Filter>Source\EngineFactory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\EngineFactory\Machine.h">
       <Filter>Source\EngineFactory</Filter>
     </ClInclude>
   </ItemGroup>

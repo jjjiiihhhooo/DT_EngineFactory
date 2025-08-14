@@ -1,0 +1,9 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.EngineFactory.gen.cpp.obj": [
+			"EngineFactory.init.gen.cpp.obj",
+			"EngineParts.gen.cpp.obj"
+		]
+	}
+}
