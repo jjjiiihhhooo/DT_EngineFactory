@@ -15,6 +15,9 @@ void EmptyLinkFunctionForGeneratedCodeCheckTrigger() {}
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FLinearColor();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
+ENGINE_API UClass* Z_Construct_UClass_UMaterialInstance_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 ENGINE_API UEnum* Z_Construct_UEnum_Engine_ECollisionChannel();
 ENGINEFACTORY_API UClass* Z_Construct_UClass_AMachine_NoRegister();
 ENGINEFACTORY_API UClass* Z_Construct_UClass_UCheckTrigger();
@@ -94,6 +97,23 @@ struct Z_Construct_UClass_UCheckTrigger_Statics
 		{ "Category", "CheckTrigger" },
 		{ "ModuleRelativePath", "CheckTrigger.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RayMesh_MetaData[] = {
+		{ "Category", "Laser" },
+		{ "ModuleRelativePath", "CheckTrigger.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RayMat_MetaData[] = {
+		{ "Category", "Laser" },
+		{ "ModuleRelativePath", "CheckTrigger.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RayMeshComp_MetaData[] = {
+		{ "Category", "Laser" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "CheckTrigger.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RayThickness_MetaData[] = {
+		{ "Category", "Laser" },
+		{ "ModuleRelativePath", "CheckTrigger.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TraceDistance;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_TraceStartOffset;
@@ -102,6 +122,10 @@ struct Z_Construct_UClass_UCheckTrigger_Statics
 	static const UECodeGen_Private::FStructPropertyParams NewProp_DebugTraceColor;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_TraceChannel;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Machine;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_RayMesh;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_RayMat;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_RayMeshComp;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_RayThickness;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -119,6 +143,10 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UCheckTrigger_St
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_DebugTraceColor = { "DebugTraceColor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, DebugTraceColor), Z_Construct_UScriptStruct_FLinearColor, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DebugTraceColor_MetaData), NewProp_DebugTraceColor_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_TraceChannel = { "TraceChannel", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, TraceChannel), Z_Construct_UEnum_Engine_ECollisionChannel, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TraceChannel_MetaData), NewProp_TraceChannel_MetaData) }; // 756624936
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_Machine = { "Machine", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, Machine), Z_Construct_UClass_AMachine_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Machine_MetaData), NewProp_Machine_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayMesh = { "RayMesh", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, RayMesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RayMesh_MetaData), NewProp_RayMesh_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayMat = { "RayMat", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, RayMat), Z_Construct_UClass_UMaterialInstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RayMat_MetaData), NewProp_RayMat_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayMeshComp = { "RayMeshComp", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, RayMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RayMeshComp_MetaData), NewProp_RayMeshComp_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayThickness = { "RayThickness", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCheckTrigger, RayThickness), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RayThickness_MetaData), NewProp_RayThickness_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCheckTrigger_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_TraceDistance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_TraceStartOffset,
@@ -126,6 +154,10 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UCheckTri
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_DebugTraceColor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_TraceChannel,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_Machine,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayMesh,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayMat,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayMeshComp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UCheckTrigger_Statics::NewProp_RayThickness,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCheckTrigger_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UCheckTrigger_Statics::DependentSingletons[])() = {
@@ -164,10 +196,10 @@ UCheckTrigger::~UCheckTrigger() {}
 struct Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_CheckTrigger_h__Script_EngineFactory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UCheckTrigger, UCheckTrigger::StaticClass, TEXT("UCheckTrigger"), &Z_Registration_Info_UClass_UCheckTrigger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCheckTrigger), 790198481U) },
+		{ Z_Construct_UClass_UCheckTrigger, UCheckTrigger::StaticClass, TEXT("UCheckTrigger"), &Z_Registration_Info_UClass_UCheckTrigger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCheckTrigger), 2388491477U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_CheckTrigger_h__Script_EngineFactory_3478915681(TEXT("/Script/EngineFactory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_CheckTrigger_h__Script_EngineFactory_727876058(TEXT("/Script/EngineFactory"),
 	Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_CheckTrigger_h__Script_EngineFactory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_CheckTrigger_h__Script_EngineFactory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

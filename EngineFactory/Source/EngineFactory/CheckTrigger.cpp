@@ -1,6 +1,7 @@
 #include "CheckTrigger.h"
 #include "DrawDebugHelpers.h"
 #include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
 #include "EngineParts.h"
 #include "Machine.h"
 
@@ -13,6 +14,9 @@ UCheckTrigger::UCheckTrigger()
 	DebugTraceColor = FLinearColor::Blue;
 	TraceChannel = ECC_Visibility;
 	LastHitActor = nullptr;
+
+	RayThickness = 3.0f;
+	RayMeshComp = nullptr;
 }
 
 void UCheckTrigger::BeginPlay()
@@ -25,11 +29,18 @@ void UCheckTrigger::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 	
-	FHitResult HitResult;
+	AActor* Owner = GetOwner();
 
-	if (LineTrace(HitResult))
+	FHitResult HitResult;
+	FVector StartLocation = Owner->GetActorLocation() + Owner->GetActorRotation().RotateVector(TraceStartOffset);
+	FVector EndLocation = StartLocation + Owner->GetActorForwardVector() * TraceDistance;
+
+	bool bHit = LineTrace(HitResult);
+
+	if (bHit)
 	{
 		TraceResult(HitResult);
+		EndLocation = HitResult.ImpactPoint;
 	}
 	else
 	{
@@ -38,6 +49,8 @@ void UCheckTrigger::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 			LastHitActor = nullptr;
 		}
 	}
+
+	ActivateRayMesh(StartLocation, EndLocation);
 
 }
 
@@ -48,7 +61,6 @@ bool UCheckTrigger::LineTrace(FHitResult& HitResult)
 	//회전값을 고려해서 시작점 위치 지정
 	FVector StartLocation = Owner->GetActorLocation() + Owner->GetActorRotation().RotateVector(TraceStartOffset);
 	//RotateVector는 로컬 좌표를 회전값에 맞춰서 월드 좌표로 변환
-	
 	FVector EndLocation = StartLocation + Owner->GetActorForwardVector() * TraceDistance;
 
 	TArray<AActor*> ActorsIgnore;
@@ -90,11 +102,6 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 {
 	AActor* HitActor = HitResult.GetActor();
 
-	if (!HitActor)
-	{
-		return;
-	}
-
 	if (HitActor != LastHitActor)
 	{
 		UE_LOG(LogTemp, Log, TEXT("%s : Hit new Actor -> %s"), *GetName(), *HitActor->GetName());
@@ -112,5 +119,37 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 		}
 
 		LastHitActor = HitActor;
+	}
+}
+
+void UCheckTrigger::ActivateRayMesh(const FVector& StartLocation, const FVector& EndLocation)
+{
+	if (!RayMeshComp)
+	{
+		AActor* Owner = GetOwner();
+
+		RayMeshComp = NewObject<UStaticMeshComponent>(Owner);
+		RayMeshComp->SetStaticMesh(RayMesh);
+		RayMeshComp->SetMaterial(0, RayMat);
+		RayMeshComp->SetupAttachment(Owner->GetRootComponent());
+		RayMeshComp->RegisterComponent(); //렌더링 하려면 등록해야함
+	}
+	else
+	{
+		RayMeshComp->SetVisibility(true);
+
+		float Length = FVector::Dist(StartLocation, EndLocation);
+		if (Length < 1.0f)
+		{
+			RayMeshComp->SetVisibility(false);
+			return;
+		}
+
+		FVector CenterLocation = (StartLocation + EndLocation) * 0.5f;
+		FRotator LookAtRotation = (EndLocation - StartLocation).Rotation();
+		FVector Scale = FVector(Length / 100.0f, RayThickness / 50.f, RayThickness / 50.0f);
+
+		RayMeshComp->SetWorldLocationAndRotation(CenterLocation, LookAtRotation);
+		RayMeshComp->SetWorldScale3D(Scale);
 	}
 }

@@ -4,6 +4,7 @@
 #include "Components/ActorComponent.h"
 #include "CheckTrigger.generated.h"
 
+class UStaticMeshComponent;
 class AMachine;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
@@ -41,6 +42,21 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AMachine* Machine;
+
+public:
+	void ActivateRayMesh(const FVector& StartLocation, const FVector& EndLocation);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Laser")
+	UStaticMesh* RayMesh;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Laser")
+	UMaterialInstance* RayMat;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Laser")
+	UStaticMeshComponent* RayMeshComp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Laser")
+	float RayThickness;
 
 private:
 	AActor* LastHitActor;
