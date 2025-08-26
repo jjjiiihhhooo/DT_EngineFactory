@@ -1,27 +1,52 @@
 #include "RobotArm.h"
+#include "EngineParts.h"
 #include "Components\SceneComponent.h"
 
 void ARobotArm::Action(float DeltaTime)
 {
-	UE_LOG(LogTemp, Warning, TEXT("RobotArm Action"));
+	//UE_LOG(LogTemp, Warning, TEXT("RobotArm Action"));
 	if (Index < TargetPos.Num())
 	{
+		FVector DrawPos = GetActorTransform().TransformPosition(TargetPos[Index]);
+		DrawDebugSphere(GetWorld(), DrawPos, 20.0f, 16, FColor::Red, false, 0.0f);
+
 		FVector Pos;
 		Pos = Point->GetRelativeLocation();
 
-		if (FVector::Distance(TargetPos[Index], Pos) > 0.1f)
+		if (Index == 0)
+		{
+			TargetPos[Index] = GetActorTransform().InverseTransformPosition(Parts->GetActorLocation());
+		}
+
+		if (FVector::Distance(TargetPos[Index], Pos) > 3.0f)
 		{
 			Pos = FMath::VInterpConstantTo(Pos, TargetPos[Index], DeltaTime, MoveSpeed);
 			Point->SetRelativeLocation(Pos);
 		}
 		else
 		{
+			if (Index == 0)
+			{
+				Parts->SetCanMove(false);
+				Parts->AttachToComponent(Point, FAttachmentTransformRules::SnapToTargetIncludingScale, NAME_None);
+			}
+			else
+			{
+				Parts->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+				
+				/*if (Parts->GetAttachParentActor() == nullptr)
+				{
+					UE_LOG(LogTemp, Display, TEXT("Parts Detach"));
+				}*/
+			}
+
 			Index++;
 		}
+
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Action Robot Arm Exit"));
+		//UE_LOG(LogTemp, Warning, TEXT("Action Robot Arm Exit"));
 		ActionExit();
 		Index = 0;
 	}

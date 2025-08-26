@@ -109,13 +109,20 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 		
 		if (Parts)
 		{
-			UE_LOG(LogTemp, Log, TEXT("%s : Hit new Actor -> %s"), *GetName(), *HitActor->GetName());
-			Parts->SetCanMove(false);
+			//(LogTemp, Log, TEXT("%s : Hit new Actor -> %s"), *GetName(), *HitActor->GetName());
+			//Parts->SetCanMove(false);
 
 			if (Machine)
 			{
-				UE_LOG(LogTemp, Warning, TEXT("Machine (in UCheckTrigger) is type: %s"), *Machine->GetClass()->GetName());
-				Machine->ActionReady(Parts);
+				//UE_LOG(LogTemp, Warning, TEXT("Machine (in UCheckTrigger) is type: %s"), *Machine->GetClass()->GetName());
+				FName HitTag = Parts->Tags[0];
+				FName MachineTag = Machine->TagName;
+				//UE_LOG(LogTemp, Warning, TEXT("Hit : %s, Machine : %s"), *HitTag.ToString(), *MachineTag.ToString());
+
+				if (HitTag == MachineTag)
+				{
+					Machine->ActionReady(Parts);
+				}
 			}
 		}
 

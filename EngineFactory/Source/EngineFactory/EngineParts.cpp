@@ -24,15 +24,15 @@ void AEngineParts::Tick(float DeltaTime)
 	{
 		if (!Spline)
 		{
+			if (SplineActor)
+			{
+				Spline = SplineActor->FindComponentByClass<USplineComponent>();
+			}
 			return;
 		}
 
 		Move(DeltaTime);
 		SetPositionOnSpline();
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("CanMove(False)"));
 	}
 }
 
@@ -44,12 +44,12 @@ void AEngineParts::InitSpline()
 
 		if (!Spline)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("could not found Spline..."));
+			//UE_LOG(LogTemp, Warning, TEXT("could not found Spline..."));
 		}
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("has no Spline Actor..."));
+		//UE_LOG(LogTemp, Warning, TEXT("has no Spline Actor..."));
 	}
 }
 

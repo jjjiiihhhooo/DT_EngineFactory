@@ -21,20 +21,13 @@ void AMachine::Tick(float DeltaTime)
 
 	if (bAction)
 	{
-		if (ActionDelay(DeltaTime))
-		{
-			Action(DeltaTime);
-		}
-		else
-		{
-			ActionExit();
-		}
+		Action(DeltaTime);
 	}
 }
 
 void AMachine::ActionReady(AEngineParts* Engine)
 {
-	UE_LOG(LogTemp, Warning, TEXT("ActionReady"));
+	//UE_LOG(LogTemp, Warning, TEXT("ActionReady"));
 	Parts = Engine;
 	bAction = true;
 }
@@ -43,20 +36,22 @@ bool AMachine::ActionDelay(float DeltaTime)
 {
 	if (CurActionTime < ActionTime)
 	{
-		UE_LOG(LogTemp, Log, TEXT("%f"), CurActionTime);
+		//UE_LOG(LogTemp, Log, TEXT("%f"), CurActionTime);
 		CurActionTime += DeltaTime;
 
 		return true;
 	}
 	else
 	{
+		//UE_LOG(LogTemp, Log, TEXT("Delay False"));
+
 		return false;
 	}
 }
 
 void AMachine::Action(float DeltaTime)
 {
-
+	//UE_LOG(LogTemp, Warning, TEXT("Action"));
 }
 
 void AMachine::ActionExit()
@@ -66,8 +61,6 @@ void AMachine::ActionExit()
 	CurActionTime = 0.0001f;
 
 	Parts->Tags.Remove(TagName);
-	Parts->Tags.Add(NextTagName);
-
-	Parts->SetCanMove(true);
+	//Parts->SetCanMove(true);
 }
 

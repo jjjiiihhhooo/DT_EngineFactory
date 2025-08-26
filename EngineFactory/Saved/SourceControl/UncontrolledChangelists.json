@@ -26,6 +26,7 @@
 				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Meshes/RobotLarge/CR_RobotArm.uasset",
 				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Blueprints/BP_RobotArm2.uasset",
 				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Blueprints/BP_Arm.uasset",
+				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Blueprints/BP_PartsSpawner.uasset",
 				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/FactotyAssets/SK_industrialrobot01_02.uasset",
 				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Effects/NE_Laser.uasset",
 				"D:/JIHO/UE5/DT_EngineFactory/EngineFactory/Content/Effects/NS_LaserBeam.uasset",

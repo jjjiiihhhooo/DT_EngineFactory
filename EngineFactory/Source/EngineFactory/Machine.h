@@ -44,8 +44,4 @@ public:
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Trigger")
 	FName TagName;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Trigger")
-	FName NextTagName;
-
 };
