@@ -121,6 +121,7 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 
 				if (HitTag == MachineTag)
 				{
+					Parts->SetMoveSpeed(200);
 					Machine->ActionReady(Parts);
 				}
 			}
