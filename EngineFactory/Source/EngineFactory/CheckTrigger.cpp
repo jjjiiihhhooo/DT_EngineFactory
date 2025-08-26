@@ -104,16 +104,17 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 
 	if (HitActor != LastHitActor)
 	{
-		UE_LOG(LogTemp, Log, TEXT("%s : Hit new Actor -> %s"), *GetName(), *HitActor->GetName());
 
 		AEngineParts* Parts = Cast<AEngineParts>(HitActor);
 		
 		if (Parts)
 		{
+			UE_LOG(LogTemp, Log, TEXT("%s : Hit new Actor -> %s"), *GetName(), *HitActor->GetName());
 			Parts->SetCanMove(false);
 
 			if (Machine)
 			{
+				UE_LOG(LogTemp, Warning, TEXT("Machine (in UCheckTrigger) is type: %s"), *Machine->GetClass()->GetName());
 				Machine->ActionReady(Parts);
 			}
 		}

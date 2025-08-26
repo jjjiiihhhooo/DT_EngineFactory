@@ -30,6 +30,10 @@ void AEngineParts::Tick(float DeltaTime)
 		Move(DeltaTime);
 		SetPositionOnSpline();
 	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("CanMove(False)"));
+	}
 }
 
 void AEngineParts::InitSpline()
