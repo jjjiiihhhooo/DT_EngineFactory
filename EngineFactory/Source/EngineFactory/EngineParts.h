@@ -52,7 +52,7 @@ public:
 	bool bCanMove;
 
 public:
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Collision")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Collision")
 	UBoxComponent* CheckBox;
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")

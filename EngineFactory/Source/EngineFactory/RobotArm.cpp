@@ -1,6 +1,7 @@
 #include "RobotArm.h"
 #include "EngineParts.h"
-#include "Components\SceneComponent.h"
+#include "Components/SceneComponent.h"
+#include "Components/BoxComponent.h"
 
 void ARobotArm::Action(float DeltaTime)
 {
@@ -32,12 +33,18 @@ void ARobotArm::Action(float DeltaTime)
 			}
 			else
 			{
-				Parts->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-				
-				/*if (Parts->GetAttachParentActor() == nullptr)
+				if (Parts->GetAttachParentActor() != nullptr)
 				{
 					UE_LOG(LogTemp, Display, TEXT("Parts Detach"));
-				}*/
+					Parts->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+					
+					if (Parts->CheckBox != nullptr)
+					{
+						Parts->CheckBox->SetSimulatePhysics(true);
+						Parts->CheckBox->SetPhysicsLinearVelocity(FVector::ZeroVector);
+						Parts->CheckBox->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
+					}
+				}
 			}
 
 			Index++;
