@@ -32,6 +32,7 @@ void UCheckTrigger::TickComponent(float DeltaTime, ELevelTick TickType, FActorCo
 	AActor* Owner = GetOwner();
 
 	FHitResult HitResult;
+
 	FVector StartLocation = Owner->GetActorLocation() + Owner->GetActorRotation().RotateVector(TraceStartOffset);
 	FVector EndLocation = StartLocation + Owner->GetActorForwardVector() * TraceDistance;
 
@@ -116,8 +117,8 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 
 				if (HitTag == MachineTag)
 				{
-					Parts->SetMoveSpeed(200);
 					Machine->ActionReady(Parts);
+					Parts->SetMoveSpeed(200);
 				}
 			}
 		}

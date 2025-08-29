@@ -52,9 +52,17 @@ public:
 	bool bCanMove;
 
 public:
+	UFUNCTION(BlueprintCallable, Category = "Physics")
+	void Detach();
+
+public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Collision")
 	UBoxComponent* CheckBox;
 public:
+
+	UFUNCTION(BlueprintCallable)
+	void SetSplineActor(AActor* Actor);
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Movement")
 	AActor* SplineActor;
 

@@ -38,7 +38,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Trigger")
 	TEnumAsByte<ECollisionChannel> TraceChannel; // ECC_Visibility, ECC_WorldStatic
-
+	
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AMachine* Machine;
@@ -58,6 +58,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Laser")
 	float RayThickness;
 
+
 private:
 	AActor* LastHitActor;
+
 };

@@ -6,13 +6,13 @@ AEngineParts::AEngineParts()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	CurrentDistance = 0.0f;
 }
 
 void AEngineParts::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	CurrentDistance = 0.0f;
 	InitSpline();
 }
 
@@ -24,10 +24,8 @@ void AEngineParts::Tick(float DeltaTime)
 	{
 		if (!Spline)
 		{
-			if (SplineActor)
-			{
-				Spline = SplineActor->FindComponentByClass<USplineComponent>();
-			}
+			InitSpline();
+
 			return;
 		}
 
@@ -64,4 +62,26 @@ void AEngineParts::SetPositionOnSpline()
 	FRotator WorldRotation = Spline->GetRotationAtDistanceAlongSpline(CurrentDistance, ESplineCoordinateSpace::World);
 
 	SetActorLocationAndRotation(WorldLocation, WorldRotation);
+}
+
+void AEngineParts::Detach()
+{
+	if (GetAttachParentActor() != nullptr)
+	{
+		DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+
+		if (CheckBox != nullptr)
+		{
+			CheckBox->SetSimulatePhysics(true);
+			CheckBox->SetPhysicsLinearVelocity(FVector::ZeroVector);
+			CheckBox->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
+		}
+	}
+}
+
+void AEngineParts::SetSplineActor(AActor* Actor)
+{
+	SplineActor = Actor;
+	Spline = SplineActor->FindComponentByClass<USplineComponent>();
+	CurrentDistance = 0.0f;
 }

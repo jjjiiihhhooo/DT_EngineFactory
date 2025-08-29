@@ -16,8 +16,12 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
+class AActor;
+
 // ********** Begin Class AEngineParts *************************************************************
 #define FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_EngineParts_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetSplineActor); \
+	DECLARE_FUNCTION(execDetach); \
 	DECLARE_FUNCTION(execSetCanMove); \
 	DECLARE_FUNCTION(execCanMove); \
 	DECLARE_FUNCTION(execGetCurDistance); \

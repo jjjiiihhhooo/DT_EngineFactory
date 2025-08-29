@@ -32,22 +32,11 @@ void ARobotArm::Action(float DeltaTime)
 			}
 			else
 			{
-				if (Parts->GetAttachParentActor() != nullptr)
-				{
-					UE_LOG(LogTemp, Display, TEXT("Parts Detach"));
-					Parts->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-					
-					if (Parts->CheckBox != nullptr)
-					{
-						Parts->CheckBox->SetSimulatePhysics(true);
-						Parts->CheckBox->SetPhysicsLinearVelocity(FVector::ZeroVector);
-						Parts->CheckBox->SetPhysicsAngularVelocityInDegrees(FVector::ZeroVector);
-					}
-				}
+				Parts->Detach();
 			}
+
 			Index++;
 		}
-
 	}
 	else
 	{
