@@ -5,7 +5,6 @@
 
 void ARobotArm::Action(float DeltaTime)
 {
-	//UE_LOG(LogTemp, Warning, TEXT("RobotArm Action"));
 	if (Index < TargetPos.Num())
 	{
 		FVector DrawPos = GetActorTransform().TransformPosition(TargetPos[Index]);
@@ -46,14 +45,12 @@ void ARobotArm::Action(float DeltaTime)
 					}
 				}
 			}
-
 			Index++;
 		}
 
 	}
 	else
 	{
-		//UE_LOG(LogTemp, Warning, TEXT("Action Robot Arm Exit"));
 		ActionExit();
 		Index = 0;
 	}

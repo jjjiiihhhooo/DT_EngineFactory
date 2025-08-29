@@ -109,15 +109,10 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 		
 		if (Parts)
 		{
-			//(LogTemp, Log, TEXT("%s : Hit new Actor -> %s"), *GetName(), *HitActor->GetName());
-			//Parts->SetCanMove(false);
-
 			if (Machine)
 			{
-				//UE_LOG(LogTemp, Warning, TEXT("Machine (in UCheckTrigger) is type: %s"), *Machine->GetClass()->GetName());
 				FName HitTag = Parts->Tags[0];
 				FName MachineTag = Machine->TagName;
-				//UE_LOG(LogTemp, Warning, TEXT("Hit : %s, Machine : %s"), *HitTag.ToString(), *MachineTag.ToString());
 
 				if (HitTag == MachineTag)
 				{
@@ -141,7 +136,7 @@ void UCheckTrigger::ActivateRayMesh(const FVector& StartLocation, const FVector&
 		RayMeshComp->SetStaticMesh(RayMesh);
 		RayMeshComp->SetMaterial(0, RayMat);
 		RayMeshComp->SetupAttachment(Owner->GetRootComponent());
-		RayMeshComp->RegisterComponent(); //렌더링 하려면 등록해야함
+		RayMeshComp->RegisterComponent(); //렌더링 하려면 등록
 	}
 	else
 	{

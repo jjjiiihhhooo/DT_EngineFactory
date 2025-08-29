@@ -41,15 +41,6 @@ void AEngineParts::InitSpline()
 	if (SplineActor)
 	{
 		Spline = SplineActor->FindComponentByClass<USplineComponent>();
-
-		if (!Spline)
-		{
-			//UE_LOG(LogTemp, Warning, TEXT("could not found Spline..."));
-		}
-	}
-	else
-	{
-		//UE_LOG(LogTemp, Warning, TEXT("has no Spline Actor..."));
 	}
 }
 
