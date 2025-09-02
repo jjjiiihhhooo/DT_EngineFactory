@@ -105,7 +105,6 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 
 	if (HitActor != LastHitActor)
 	{
-
 		AEngineParts* Parts = Cast<AEngineParts>(HitActor);
 		
 		if (Parts)

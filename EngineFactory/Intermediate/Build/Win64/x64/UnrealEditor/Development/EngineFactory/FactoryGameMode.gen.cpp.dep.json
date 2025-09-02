@@ -1,0 +1,19 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\factorygamemode.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\x64\\enginefactoryeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\enginefactory\\definitions.enginefactory.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\factorygamemode.h",
+            "d:\\epicgames\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "d:\\epicgames\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "d:\\epicgames\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "d:\\epicgames\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\factorygamemode.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

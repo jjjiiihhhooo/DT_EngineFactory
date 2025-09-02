@@ -21,6 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execTimeRate);
 
 
+#define FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h_12_CALLBACK_WRAPPERS
 ENGINEFACTORY_API UClass* Z_Construct_UClass_AMachine_NoRegister();
 
 #define FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h_12_INCLASS_NO_PURE_DECLS \
@@ -49,6 +50,7 @@ public: \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h_12_CALLBACK_WRAPPERS \
 	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h_12_INCLASS_NO_PURE_DECLS \
 	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h_12_ENHANCED_CONSTRUCTORS \
 private: \

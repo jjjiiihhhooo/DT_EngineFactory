@@ -3,10 +3,11 @@
 	{
 		"Module.EngineFactory.gen.cpp.obj": [
 			"CheckTrigger.gen.cpp.obj",
-			"EngineFactory.init.gen.cpp.obj",
 			"EngineParts.gen.cpp.obj",
 			"Machine.gen.cpp.obj",
-			"RobotArm.gen.cpp.obj"
+			"RobotArm.gen.cpp.obj",
+			"EngineFactory.init.gen.cpp.obj",
+			"FactoryGameMode.gen.cpp.obj"
 		]
 	}
 }

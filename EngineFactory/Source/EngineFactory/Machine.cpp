@@ -29,6 +29,8 @@ void AMachine::ActionReady(AEngineParts* Engine)
 {
 	Parts = Engine;
 	bAction = true;
+
+	StateChange(1);
 }
 
 bool AMachine::ActionDelay(float DeltaTime)
@@ -57,5 +59,7 @@ void AMachine::ActionExit()
 	CurActionTime = 0.0001f;
 
 	Parts->Tags.Remove(TagName);
+
+	StateChange(0);
 }
 
