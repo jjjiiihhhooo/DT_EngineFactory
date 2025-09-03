@@ -43,10 +43,7 @@ public:
 
 public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "State")
-	void StateChange(int32 Index);
-	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "State")
-	TArray<FString> States;
+	void StateChange(bool Acting);
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Trigger")

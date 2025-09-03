@@ -379,10 +379,15 @@ struct Z_Construct_UClass_AEngineParts_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "EngineParts.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PartsIndex_MetaData[] = {
+		{ "Category", "EngineParts" },
+		{ "ModuleRelativePath", "EngineParts.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CheckBox;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SplineActor;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Spline;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_PartsIndex;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -403,10 +408,12 @@ struct Z_Construct_UClass_AEngineParts_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEngineParts_Statics::NewProp_CheckBox = { "CheckBox", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEngineParts, CheckBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CheckBox_MetaData), NewProp_CheckBox_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEngineParts_Statics::NewProp_SplineActor = { "SplineActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEngineParts, SplineActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SplineActor_MetaData), NewProp_SplineActor_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AEngineParts_Statics::NewProp_Spline = { "Spline", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEngineParts, Spline), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Spline_MetaData), NewProp_Spline_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_AEngineParts_Statics::NewProp_PartsIndex = { "PartsIndex", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AEngineParts, PartsIndex), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PartsIndex_MetaData), NewProp_PartsIndex_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AEngineParts_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEngineParts_Statics::NewProp_CheckBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEngineParts_Statics::NewProp_SplineActor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEngineParts_Statics::NewProp_Spline,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AEngineParts_Statics::NewProp_PartsIndex,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AEngineParts_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AEngineParts_Statics::DependentSingletons[])() = {
@@ -445,10 +452,10 @@ AEngineParts::~AEngineParts() {}
 struct Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_EngineParts_h__Script_EngineFactory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AEngineParts, AEngineParts::StaticClass, TEXT("AEngineParts"), &Z_Registration_Info_UClass_AEngineParts, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEngineParts), 2291880957U) },
+		{ Z_Construct_UClass_AEngineParts, AEngineParts::StaticClass, TEXT("AEngineParts"), &Z_Registration_Info_UClass_AEngineParts, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AEngineParts), 1437166747U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_EngineParts_h__Script_EngineFactory_3245174964(TEXT("/Script/EngineFactory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_EngineParts_h__Script_EngineFactory_2647642430(TEXT("/Script/EngineFactory"),
 	Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_EngineParts_h__Script_EngineFactory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_EngineParts_h__Script_EngineFactory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

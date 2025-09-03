@@ -68,4 +68,8 @@ public:
 
 	UPROPERTY()
 	USplineComponent* Spline;
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int32 PartsIndex;
 };

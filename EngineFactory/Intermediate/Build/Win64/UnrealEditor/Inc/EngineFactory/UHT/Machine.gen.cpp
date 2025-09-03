@@ -22,13 +22,13 @@ UPackage* Z_Construct_UPackage__Script_EngineFactory();
 // ********** Begin Class AMachine Function StateChange ********************************************
 struct Machine_eventStateChange_Parms
 {
-	int32 Index;
+	bool Acting;
 };
 static FName NAME_AMachine_StateChange = FName(TEXT("StateChange"));
-void AMachine::StateChange(int32 Index)
+void AMachine::StateChange(bool Acting)
 {
 	Machine_eventStateChange_Parms Parms;
-	Parms.Index=Index;
+	Parms.Acting=Acting ? true : false;
 	UFunction* Func = FindFunctionChecked(NAME_AMachine_StateChange);
 	ProcessEvent(Func,&Parms);
 }
@@ -40,13 +40,18 @@ struct Z_Construct_UFunction_AMachine_StateChange_Statics
 		{ "ModuleRelativePath", "Machine.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FIntPropertyParams NewProp_Index;
+	static void NewProp_Acting_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_Acting;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_AMachine_StateChange_Statics::NewProp_Index = { "Index", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Machine_eventStateChange_Parms, Index), METADATA_PARAMS(0, nullptr) };
+void Z_Construct_UFunction_AMachine_StateChange_Statics::NewProp_Acting_SetBit(void* Obj)
+{
+	((Machine_eventStateChange_Parms*)Obj)->Acting = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AMachine_StateChange_Statics::NewProp_Acting = { "Acting", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Machine_eventStateChange_Parms), &Z_Construct_UFunction_AMachine_StateChange_Statics::NewProp_Acting_SetBit, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMachine_StateChange_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMachine_StateChange_Statics::NewProp_Index,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMachine_StateChange_Statics::NewProp_Acting,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AMachine_StateChange_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AMachine_StateChange_Statics::FuncParams = { { (UObject*(*)())Z_Construct_UClass_AMachine, nullptr, "StateChange", Z_Construct_UFunction_AMachine_StateChange_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AMachine_StateChange_Statics::PropPointers), sizeof(Machine_eventStateChange_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AMachine_StateChange_Statics::Function_MetaDataParams), Z_Construct_UFunction_AMachine_StateChange_Statics::Function_MetaDataParams)},  };
@@ -165,10 +170,6 @@ struct Z_Construct_UClass_AMachine_Statics
 		{ "Category", "Action" },
 		{ "ModuleRelativePath", "Machine.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_States_MetaData[] = {
-		{ "Category", "State" },
-		{ "ModuleRelativePath", "Machine.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TagName_MetaData[] = {
 		{ "Category", "Trigger" },
 		{ "ModuleRelativePath", "Machine.h" },
@@ -179,13 +180,11 @@ struct Z_Construct_UClass_AMachine_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bAction;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_ActionTime;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CurActionTime;
-	static const UECodeGen_Private::FStrPropertyParams NewProp_States_Inner;
-	static const UECodeGen_Private::FArrayPropertyParams NewProp_States;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_TagName;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AMachine_StateChange, "StateChange" }, // 2459238796
+		{ &Z_Construct_UFunction_AMachine_StateChange, "StateChange" }, // 4135782811
 		{ &Z_Construct_UFunction_AMachine_TimeRate, "TimeRate" }, // 4185174152
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -202,16 +201,12 @@ void Z_Construct_UClass_AMachine_Statics::NewProp_bAction_SetBit(void* Obj)
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AMachine_Statics::NewProp_bAction = { "bAction", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AMachine), &Z_Construct_UClass_AMachine_Statics::NewProp_bAction_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bAction_MetaData), NewProp_bAction_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMachine_Statics::NewProp_ActionTime = { "ActionTime", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMachine, ActionTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActionTime_MetaData), NewProp_ActionTime_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMachine_Statics::NewProp_CurActionTime = { "CurActionTime", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMachine, CurActionTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurActionTime_MetaData), NewProp_CurActionTime_MetaData) };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AMachine_Statics::NewProp_States_Inner = { "States", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AMachine_Statics::NewProp_States = { "States", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMachine, States), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_States_MetaData), NewProp_States_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AMachine_Statics::NewProp_TagName = { "TagName", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AMachine, TagName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TagName_MetaData), NewProp_TagName_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AMachine_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_Parts,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_bAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_ActionTime,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_CurActionTime,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_States_Inner,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_States,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMachine_Statics::NewProp_TagName,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AMachine_Statics::PropPointers) < 2048);
@@ -251,10 +246,10 @@ AMachine::~AMachine() {}
 struct Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h__Script_EngineFactory_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AMachine, AMachine::StaticClass, TEXT("AMachine"), &Z_Registration_Info_UClass_AMachine, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMachine), 208499711U) },
+		{ Z_Construct_UClass_AMachine, AMachine::StaticClass, TEXT("AMachine"), &Z_Registration_Info_UClass_AMachine, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AMachine), 1750922090U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h__Script_EngineFactory_2514757450(TEXT("/Script/EngineFactory"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h__Script_EngineFactory_2730045786(TEXT("/Script/EngineFactory"),
 	Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h__Script_EngineFactory_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_Machine_h__Script_EngineFactory_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

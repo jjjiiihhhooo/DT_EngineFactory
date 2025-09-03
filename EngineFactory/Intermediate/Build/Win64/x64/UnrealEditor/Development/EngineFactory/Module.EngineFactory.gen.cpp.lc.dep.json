@@ -9,9 +9,13 @@
             "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\checktrigger.gen.cpp",
             "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\checktrigger.h",
             "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\checktrigger.generated.h",
-            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\engineparts.gen.cpp",
-            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\engineparts.h",
-            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\engineparts.generated.h"
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\factorygamemode.gen.cpp",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\factorygamemode.h",
+            "d:\\epicgames\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "d:\\epicgames\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "d:\\epicgames\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "d:\\epicgames\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\factorygamemode.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
