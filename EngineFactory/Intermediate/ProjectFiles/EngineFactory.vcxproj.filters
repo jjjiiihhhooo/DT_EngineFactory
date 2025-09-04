@@ -63,6 +63,12 @@
     <ClInclude Include="..\..\Source\EngineFactory\Machine.h">
       <Filter>Source\EngineFactory</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\EngineFactory\ManagerComponent.cpp">
+      <Filter>Source\EngineFactory</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\EngineFactory\ManagerComponent.h">
+      <Filter>Source\EngineFactory</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\EngineFactory\RobotArm.cpp">
       <Filter>Source\EngineFactory</Filter>
     </ClCompile>
