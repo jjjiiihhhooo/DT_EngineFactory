@@ -54,12 +54,8 @@ void AMachine::Action(float DeltaTime)
 
 void AMachine::ActionExit()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ActionExit"));
 	bAction = false;
 	CurActionTime = 0.0001f;
-
-	Parts->Tags.Remove(TagName);
-
 	StateChange(bAction);
 }
 

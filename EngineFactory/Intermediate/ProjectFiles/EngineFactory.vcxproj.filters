@@ -63,10 +63,10 @@
     <ClInclude Include="..\..\Source\EngineFactory\Machine.h">
       <Filter>Source\EngineFactory</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\EngineFactory\ManagerComponent.cpp">
+    <ClCompile Include="..\..\Source\EngineFactory\Manager.cpp">
       <Filter>Source\EngineFactory</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\EngineFactory\ManagerComponent.h">
+    <ClInclude Include="..\..\Source\EngineFactory\Manager.h">
       <Filter>Source\EngineFactory</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\EngineFactory\RobotArm.cpp">

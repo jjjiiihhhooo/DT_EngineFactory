@@ -17,10 +17,6 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 // ********** Begin Class AFactoryGameMode *********************************************************
-#define FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_FactoryGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execChangeCamera);
-
-
 ENGINEFACTORY_API UClass* Z_Construct_UClass_AFactoryGameMode_NoRegister();
 
 #define FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_FactoryGameMode_h_12_INCLASS_NO_PURE_DECLS \
@@ -48,7 +44,6 @@ public: \
 #define FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_FactoryGameMode_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_FactoryGameMode_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_FactoryGameMode_h_12_INCLASS_NO_PURE_DECLS \
 	FID_JIHO_UE5_DT_EngineFactory_EngineFactory_Source_EngineFactory_FactoryGameMode_h_12_ENHANCED_CONSTRUCTORS \
 private: \

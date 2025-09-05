@@ -25,12 +25,10 @@ void ASpawner::InitPool()
 
 	for (int32 i = 0; i < PoolSize; i++)
 	{
-		for (int32 j = 0; j < 10; j++)
+		for (int32 j = 0; j < 3; j++)
 		{
 			CreateParts(i);
 		}
-
-		UE_LOG(LogTemp, Warning, TEXT("%d번째 인덱스 초기화 완료"), i);
 	}
 }
 
@@ -44,10 +42,13 @@ void ASpawner::CreateParts(int32 Index)
 
 void ASpawner::PartsEnqueue(AEngineParts* Parts, int32 Index)
 {
+	Parts->SetCanMove(false);
+	Parts->SetSplineActor(nullptr);
 	Parts->SetActorHiddenInGame(true);
 	Parts->SetActorEnableCollision(false);
 	Parts->SetActorTickEnabled(false);
 	Parts->SetActorTransform(GetTransform());
+	Parts->CurrentDistance = 0;
 
 	PartsQueuePool[Index].Enqueue(Parts);
 }
@@ -56,7 +57,6 @@ AEngineParts* ASpawner::GetPartsByIndex(int32 Index)
 {
 	if (Index >= PoolSize)
 	{
-		UE_LOG(LogTemp, Error, TEXT("접근할 수 없는 인덱스입니다. Index %d >= Pool Size %d"), Index, PoolSize);
 		return nullptr;
 	}
 
@@ -68,19 +68,16 @@ AEngineParts* ASpawner::GetPartsByIndex(int32 Index)
 	AEngineParts* Parts;
 
 	PartsQueuePool[Index].Dequeue(Parts);
-
+	Parts->SetActorTransform(GetTransform());
 	Parts->SetActorHiddenInGame(false);
 	Parts->SetActorEnableCollision(true);
 	Parts->SetActorTickEnabled(true);
 
-
-	UE_LOG(LogTemp, Warning, TEXT("GetByIndex"));
 	return Parts;
 }
 
 void ASpawner::ReturnParts(AEngineParts* Parts, int32 Index)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Return"));
 	PartsEnqueue(Parts, Index);
 }
 

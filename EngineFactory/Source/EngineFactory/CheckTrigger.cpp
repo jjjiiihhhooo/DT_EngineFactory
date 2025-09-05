@@ -111,8 +111,13 @@ void UCheckTrigger::TraceResult(const FHitResult& HitResult)
 		{
 			if (Machine)
 			{
-				FName HitTag = Parts->Tags[0];
+				FName HitTag;
 				FName MachineTag = Machine->TagName;
+
+				if (Parts->Tags.Num() > 0)
+				{
+					HitTag = Parts->Tags[0];
+				}
 
 				if (HitTag == MachineTag)
 				{

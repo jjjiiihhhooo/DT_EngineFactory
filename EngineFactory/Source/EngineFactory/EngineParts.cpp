@@ -81,7 +81,15 @@ void AEngineParts::Detach()
 
 void AEngineParts::SetSplineActor(AActor* Actor)
 {
+	if (Actor == nullptr)
+	{
+		SplineActor = nullptr;
+		Spline = nullptr;
+		return;
+	}
+
 	SplineActor = Actor;
+
 	Spline = SplineActor->FindComponentByClass<USplineComponent>();
 	CurrentDistance = 0.0f;
 }

@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\robotarm.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\x64\\enginefactoryeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.valexpapi.cpp20.h.pch",
+        "Includes": [
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\enginefactory\\definitions.enginefactory.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\robotarm.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\machine.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\machine.generated.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\robotarm.generated.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\source\\enginefactory\\engineparts.h",
+            "d:\\jiho\\ue5\\dt_enginefactory\\enginefactory\\intermediate\\build\\win64\\unrealeditor\\inc\\enginefactory\\uht\\engineparts.generated.h",
+            "d:\\epicgames\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
+            "d:\\epicgames\\ue_5.6\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "d:\\epicgames\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "d:\\epicgames\\ue_5.6\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\boxcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

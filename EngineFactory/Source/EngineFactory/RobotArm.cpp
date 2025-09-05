@@ -7,9 +7,6 @@ void ARobotArm::Action(float DeltaTime)
 {
 	if (Index < TargetPos.Num())
 	{
-		FVector DrawPos = GetActorTransform().TransformPosition(TargetPos[Index]);
-		DrawDebugSphere(GetWorld(), DrawPos, 20.0f, 16, FColor::Red, false, 0.0f);
-
 		FVector Pos;
 		Pos = Point->GetRelativeLocation();
 
@@ -29,10 +26,6 @@ void ARobotArm::Action(float DeltaTime)
 			{
 				Parts->SetCanMove(false);
 				Parts->AttachToComponent(Point, FAttachmentTransformRules::SnapToTargetIncludingScale, NAME_None);
-			}
-			else
-			{
-				Parts->Detach();
 			}
 
 			Index++;
